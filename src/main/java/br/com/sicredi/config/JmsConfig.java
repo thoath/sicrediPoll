@@ -12,6 +12,12 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
 
+/**
+ * Configuracao das filas JMS, messageria utilizada com activeMQ
+ * @author lucaskoch
+ * @see https://spring.io/guides/gs/messaging-jms/
+ * @see https://activemq.apache.org/
+ */
 @Configuration
 @EnableJms
 public class JmsConfig {

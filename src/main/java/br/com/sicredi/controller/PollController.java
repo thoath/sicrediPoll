@@ -21,6 +21,11 @@ import br.com.sicredi.models.PollOptions;
 import br.com.sicredi.models.Response;
 import br.com.sicredi.service.PollService;
 
+/**
+ * Controle de criacao de enquetes para votacao
+ * @author lucaskoch
+ *
+ */
 @RestController
 @RequestMapping("/api/v1/poll")
 public class PollController {
@@ -33,6 +38,12 @@ public class PollController {
 		return ResponseEntity.ok().body(new Response<>(pollService.index(), null));
 	}
 	
+	/**
+	 * Persiste uma enquete na base de dados
+	 * @param poll
+	 * @param result
+	 * @return
+	 */
 	@PostMapping
 	public ResponseEntity<Response<PollDto>> store(@RequestBody @Valid Poll poll, BindingResult result) {
 		
@@ -58,21 +69,37 @@ public class PollController {
 		return ResponseEntity.ok().body(new Response<>(null, errors));
 	}
 	
+	/**
+	 * Busca por todas as enquetes abertas para votacao
+	 * @return
+	 */
 	@GetMapping("/open")
 	public ResponseEntity<Response<Set<PollDto>>> findByOpenStatus() {
 		return ResponseEntity.ok().body(new Response<>(pollService.findOpen(), null));
 	}
 	
+	/**
+	 * Busca todas as enquetes fechadas/expiradas
+	 * @return
+	 */
 	@GetMapping("/closed")
 	public ResponseEntity<Response<Set<PollDto>>> findByCloseStatus() {
 		return ResponseEntity.ok().body(new Response<>(pollService.findClosed(), null));
 	}
 	
+	/**
+	 * Busca todas as enquetes aprovadas pela maioria de voto
+	 * @return
+	 */
 	@GetMapping("/approved")
 	public ResponseEntity<Response<Set<PollDto>>> findByApproved() {
 		return ResponseEntity.ok().body(new Response<>(pollService.findByResult(PollOptions.YES), null));
 	}
 	
+	/**
+	 * Busca todoas as enquetes rejeitadas pela maioria de voto
+	 * @return
+	 */
 	@GetMapping("/rejected")
 	public ResponseEntity<Response<Set<PollDto>>> findByRejected() {
 		return ResponseEntity.ok().body(new Response<>(pollService.findByResult(PollOptions.NO), null));

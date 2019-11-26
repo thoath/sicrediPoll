@@ -5,6 +5,12 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
+/**
+ * Componente de envio e recebimento de mensagens jms
+ * Para fins de teste, esse componente envia e recebe a mensagem
+ * @author lucaskoch
+ *
+ */
 @Component
 public class PollVoteJob {
 

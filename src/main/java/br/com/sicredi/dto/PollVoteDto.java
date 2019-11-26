@@ -5,6 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import br.com.sicredi.models.PollOptions;
 
+/**
+ * Objeto de transferencia de dados do modelo de votacao
+ * @author lucaskoch
+ *
+ */
 @SuppressWarnings("rawtypes")
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)

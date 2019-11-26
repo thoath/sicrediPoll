@@ -8,6 +8,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import br.com.sicredi.models.PollOptions;
 import br.com.sicredi.models.PollStatus;
 
+/**
+ * Objeto de transferencia de dados do modelo de enquete
+ * @author lucaskoch
+ *
+ */
 @SuppressWarnings("rawtypes")
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)

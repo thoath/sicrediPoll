@@ -27,6 +27,11 @@ import br.com.sicredi.repository.AssociadoRepository;
 import br.com.sicredi.repository.PollRepository;
 import br.com.sicredi.service.PollVoteService;
 
+/**
+ * Controlador de votacao das enquetes
+ * @author lucaskoch
+ *
+ */
 @RestController
 @RequestMapping("/api/v1/vote")
 public class PollVoteController {
@@ -46,6 +51,15 @@ public class PollVoteController {
 		return ResponseEntity.ok().body(new Response<>(pollVoteService.index(), null));
 	}
 	
+	/**
+	 * Persiste uma votacao no sistema
+	 *  - Apenas 1 votacao por cpf e permitida
+	 *  - So pode votar em enquetes abertas
+	 *  - Apos votar, se o mesmo cpf tentar votar novamente, vai apenas atualizar seu voto
+	 * @param pollVote
+	 * @param result
+	 * @return
+	 */
 	@PostMapping
 	private ResponseEntity<Response<PollVoteDto>> store(@RequestBody @Valid PollVote pollVote, BindingResult result){
 		

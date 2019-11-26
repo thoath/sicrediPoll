@@ -19,6 +19,11 @@ import br.com.sicredi.models.Response;
 import br.com.sicredi.repository.AssociadoRepository;
 import br.com.sicredi.service.AssociadoService;
 
+/**
+ * Controlador de registros de associados para votacao
+ * @author lucaskoch
+ *
+ */
 @RestController
 @RequestMapping("/api/v1/associado")
 public class AssociadoController {
@@ -29,6 +34,13 @@ public class AssociadoController {
 	@Autowired
 	private AssociadoService associadoService;
 	
+	/**
+	 * Persiste um novo associado na aplicacao
+	 *  - CPF deve ser valido e nao pode ser repetido
+	 * @param associado
+	 * @param result resultado da validacao do request body com o model
+	 * @return
+	 */
 	@PostMapping
 	public ResponseEntity<Response<AssociadoDto>> store(@RequestBody @Valid Associado associado, BindingResult result){
 		

@@ -3,6 +3,11 @@ package br.com.sicredi.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+/**
+ * Objeto de transferencia de dados do modelo de associado
+ * @author lucaskoch
+ *
+ */
 @SuppressWarnings("rawtypes")
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)

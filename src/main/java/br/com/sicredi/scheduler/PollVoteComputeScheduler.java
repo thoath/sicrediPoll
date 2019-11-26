@@ -14,6 +14,13 @@ import br.com.sicredi.models.PollVote;
 import br.com.sicredi.repository.PollRepository;
 import br.com.sicredi.repository.PollVoteRepository;
 
+/**
+ * Agendador de contagem de votos, computa os todos os votos de hora em hora
+ *  - Conta votos e atualiza enquetes encerradas
+ *  - Em empate, o resultado e negativo
+ * @author lucaskoch
+ *
+ */
 @Component
 @EnableScheduling
 public class PollVoteComputeScheduler {
