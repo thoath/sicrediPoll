@@ -1,0 +1,5 @@
+docker run --name dbsicredi -e POSTGRES_PASSWORD=sicredi -e POSTGRES_DB=sicredipoll -p 5432:5432 -d postgres:11
+
+docker pull rmohr/activemq
+
+docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
