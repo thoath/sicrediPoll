@@ -29,9 +29,9 @@ associado é identificado por um id único e pode votar apenas uma vez por pauta
  - Swagger2
  
 # Método de desenvolvimento
-- Para persistir os associaddos,enquetes e votações foi utilizado a banco de dados Postgres.
+- Para persistir os associados,enquetes e votações foi utilizado a banco de dados Postgres.
 - Para contabilizar a votação de enquetes já encerradas, foi implementado um agendador, que, de hora
-em hora busca por enquetes encerradas, contabliza seus votos e atualiza o resultado final da votação.
+em hora busca por enquetes encerradas, contabiliza seus votos e atualiza o resultado final da votação.
 - Para documentar a api foi utilizado o Swagger2.
 - Teste unitário implementado somente no controlador do associado, por questões de tempo.
 
