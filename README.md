@@ -1,4 +1,4 @@
-# sicredi enquetes
+# Sicredi enquetes
 
 
 No cooperativismo, cada associado possui um voto e as decisões são tomadas em assembleias, por votação. Essa api serve para você gerenciar essas sessões de votação.
