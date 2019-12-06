@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,7 +68,7 @@ public class PollVoteController {
 		
 		if (result.hasErrors()) {
 			return ResponseEntity
-					.ok()
+					.status(HttpStatus.BAD_REQUEST)
 					.body(new Response<>(null, result
 							.getAllErrors()
 							.stream()
@@ -80,7 +81,7 @@ public class PollVoteController {
 		
 		if (poll.isPresent() && poll.get().getStatus() == PollStatus.CLOSED) {
 			errors.add("As votações já foram encerradas.");
-			return ResponseEntity.ok().body(new Response<>(null, errors));
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Response<>(null, errors));
 		}
 		
 		
@@ -91,17 +92,19 @@ public class PollVoteController {
 			
 			if (associado.isPresent() 
 					&& pollVoteService.checkCPF(associado.get().getCpf()).getStatus() == CPFValidationStatus.ABLE_TO_VOTE) {
-				return ResponseEntity.ok().body(new Response<>(pollVoteService.store(pollVote), null));
+				return ResponseEntity.status(HttpStatus.CREATED).body(new Response<>(pollVoteService.store(pollVote), null));
 			}
 			
 			errors.add("Seu CPF não está autorizado para essa votação.");
+			
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new Response<>(null, errors));
 			
 			
 		} catch (Exception ex) {
 			errors.add("Error ao processar o cadastro, tente novamente mais tarde.");	
 		}
 		
-		return ResponseEntity.ok().body(new Response<>(null, errors));
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new Response<>(null, errors));
 		
 	}
 

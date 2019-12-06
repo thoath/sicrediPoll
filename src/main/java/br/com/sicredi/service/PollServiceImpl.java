@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.sicredi.dto.PollDto;
 import br.com.sicredi.models.Poll;
 import br.com.sicredi.models.PollOptions;
 import br.com.sicredi.repository.PollRepository;
 
-@Component
+@Service
 public class PollServiceImpl implements PollService {
 
 	@Autowired

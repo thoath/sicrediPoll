@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,7 +16,7 @@ import br.com.sicredi.models.CPFValidationStatusResponse;
 import br.com.sicredi.models.PollVote;
 import br.com.sicredi.repository.PollVoteRepository;
 
-@Component
+@Service
 public class PollVoteServiceImpl implements PollVoteService {
 
 	@Autowired

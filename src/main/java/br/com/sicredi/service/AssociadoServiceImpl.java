@@ -2,13 +2,13 @@ package br.com.sicredi.service;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.sicredi.dto.AssociadoDto;
 import br.com.sicredi.models.Associado;
 import br.com.sicredi.repository.AssociadoRepository;
 
-@Component
+@Service
 public class AssociadoServiceImpl implements AssociadoService{
 
 	@Autowired
